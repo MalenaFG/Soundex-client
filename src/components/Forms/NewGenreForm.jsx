@@ -46,7 +46,7 @@ const NewGenreForm = () => {
                 <Form.Label>Images</Form.Label>
                 <Form.Control type="text" placeholder="type URL" />
             </Form.Group>
-            <Button variant="success" type="submit" className="shadow">Add Genre</Button>
+            <Button variant="outline-info" type="submit" className="shadow">Add Genre</Button>
         </Form>
     )
 }

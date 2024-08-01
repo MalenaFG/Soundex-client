@@ -11,6 +11,7 @@ import NewSongFormPage from './pages/NewSongFormPage/NewSongFormPage'
 import NewGenreFormPage from './pages/NewGenreFormPage/NewGenreFormPage'
 import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
 
           <Route path='*' element={404} />
         </Routes >
+        <Footer />
       </Container >
 
     </>
