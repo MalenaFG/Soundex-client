@@ -72,3 +72,18 @@ App/
 - SongCard
 - SongVideoPlayer [https://www.npmjs.com/package/react-player]
 - SidebarPlaylistPlayer [***]
+
+### COMPONENTS
+
+#### 1. GenreCardPage
+
+- GenreInfo
+- GenreSongsPlaylist
+- SongListCard
+
+<details>
+<summary>Open diagram</summary>
+  <div style="display: flex; justify-content: start">
+    <img src="./docs/GenreCardPage.png" height="600px"/>
+  </div>
+</details>
