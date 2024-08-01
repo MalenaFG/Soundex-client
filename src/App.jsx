@@ -7,6 +7,7 @@ import GenreCardPage from './pages/GenreCardPage/GenreCardPage'
 import SongsListPage from './pages/SongsListPage/SongsListPage'
 import SongCardPage from './pages/SongCardPage/SongCardPage'
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage'
+import NewGenreFormPage from './pages/AddGenreFormPage/AddGenreFormPage'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/genres' element={<GenresListPage />} />
         <Route path='/genres/:genreId' element={<GenreCardPage />} />
+        <Route path='/genres/new' element={<NewGenreFormPage />} />
         <Route path='/songs' element={<SongsListPage />} />
         <Route path='/songs/:songId' element={<SongCardPage />} />
         <Route path='/about' element={<AboutUsPage />} />
