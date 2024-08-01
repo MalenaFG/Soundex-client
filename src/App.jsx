@@ -7,10 +7,10 @@ import GenreCardPage from './pages/GenreCardPage/GenreCardPage'
 import SongsListPage from './pages/SongsListPage/SongsListPage'
 import SongCardPage from './pages/SongCardPage/SongCardPage'
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage'
-import NewGenreFormPage from './pages/AddGenreFormPage/AddGenreFormPage'
+import NewSongFormPage from './pages/NewSongFormPage/NewSongFormPage'
+import NewGenreFormPage from './pages/NewGenreFormPage/NewGenreFormPage'
 import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import NewSongFormPage from './pages/NewSongFormPage/NewSongFormPage'
 
 function App() {
 
@@ -28,8 +28,8 @@ function App() {
           <Route path='/about' element={<AboutUsPage />} />
 
           <Route path='*' element={404} />
-        </Routes>
-      </Container>
+        </Routes >
+      </Container >
 
     </>
   )
