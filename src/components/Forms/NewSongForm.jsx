@@ -53,7 +53,7 @@ const NewSongForm = () => {
                 <Form.Label>Band or Solo artist website:</Form.Label>
                 <Form.Control type="text" placeholder="Enter website" />
             </Form.Group>
-            <Button variant="success" type="submit" className="shadow">
+            <Button variant="outline-info" type="submit" className="shadow">
                 Add Song
             </Button>
         </Form>

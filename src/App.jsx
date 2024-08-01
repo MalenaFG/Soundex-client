@@ -11,11 +11,13 @@ import NewSongFormPage from './pages/NewSongFormPage/NewSongFormPage'
 import NewGenreFormPage from './pages/NewGenreFormPage/NewGenreFormPage'
 import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Header from './components/Header/Header'
 
 function App() {
 
   return (
     <>
+      <Header />
       <Container>
         <Routes>
           <Route path='/' element={<HomePage />} />
