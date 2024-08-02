@@ -5,17 +5,16 @@ const Navigation = () => {
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
             <Container>
-                <Link to="/" className="navbar-brand">
+                <Navbar.Brand as={Link} to="/">
                     RECOMMENDATOR 3.000
-                </Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        {/* TODO: USAR PROP AS EN NAVLINKS DE BS */}
                         <Nav.Link to={"/"} as={Link}>Home</Nav.Link>
-                        <Link to={"/genres"} className="nav-link">Genres list</Link>
-                        <Link to={"/songs"} className="nav-link">Songs list</Link>
-                        <Link to={"/about"} className="nav-link">About us</Link>
+                        <Nav.Link to={"/genres"} as={Link}>Genres list</Nav.Link>
+                        <Nav.Link to={"/songs"} as={Link} >Songs list</Nav.Link>
+                        <Nav.Link to={"/about"} as={Link} >About us</Nav.Link>
                     </Nav>
                     <Nav>
                         <Form className="d-flex">
