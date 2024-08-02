@@ -1,0 +1,8 @@
+.SongListCard .ratio {
+    overflow: hidden;
+
+}
+
+.SongListCard img {
+    object-fit: cover;
+}
