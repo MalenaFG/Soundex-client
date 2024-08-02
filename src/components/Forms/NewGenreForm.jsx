@@ -39,11 +39,6 @@ const NewGenreForm = () => {
             })
     }
 
-    // Refactor validateForm to avoid check the isMainstream key of formValues (not mandatory)
-    // const validateForm = (formBody) => {
-    //     return !Object.values(formBody).every(elm => elm !== null || elm === "")
-    // }
-
     const handleSubmit = (event) => {
         event.preventDefault()
         const countriesArray = originsValues.countries.split(",")
@@ -63,7 +58,7 @@ const NewGenreForm = () => {
         <div className="NewGenreForm" >
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="nameId">
-                    <Form.Label>Name:</Form.Label>
+                    <Form.Label>Name:<sup>*</sup></Form.Label>
                     <Form.Control
                         onChange={handleFormValues}
                         type="text"

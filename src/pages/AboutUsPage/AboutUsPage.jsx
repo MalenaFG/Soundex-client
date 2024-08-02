@@ -1,7 +1,11 @@
+import { Container } from "react-bootstrap"
+
 const AboutUsPage = () => {
     return (
         <div className="AboutUsPage">
-            <h1>Soy AboutUsPage</h1>
+            <Container>
+                <h1>Soy AboutUsPage</h1>
+            </Container>
         </div>
     )
 }

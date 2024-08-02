@@ -77,13 +77,9 @@ App/
 
 #### 1. GenreCardPage
 
-- GenreInfo
-- GenreSongsPlaylist
-- SongListCard
 
-<details>
-<summary>Open diagram</summary>
-  <div style="display: flex; justify-content: start">
-    <img src="./docs/GenreCardPage.png" height="600px"/>
-  </div>
-</details>
+## TO-DO
+
+### MALENA
+- [] 
+### SERGIO

@@ -1,7 +1,11 @@
+import { Container } from "react-bootstrap"
+
 const SongCardPage = () => {
     return (
         <div className="SongCardPage">
-            <h1>Soy SongCardPage</h1>
+            <Container>
+                <h1>Soy SongCardPage</h1>
+            </Container>
         </div>
     )
 }
