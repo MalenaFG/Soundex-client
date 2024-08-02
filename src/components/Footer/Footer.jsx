@@ -13,16 +13,16 @@ const Footer = () => {
                     <Col className="col-md-6 justify-content-end">
                         <Nav className="justify-content-end">
                             <Nav.Item>
-                                <Link to="/" className="nav-link">Home</Link>
+                                <Nav.Link as={Link} to="/">Home</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to="/genres" className="nav-link">Genres list</Link>
+                                <Nav.Link as={Link} to="/genres">Genres list</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to="/songs" className="nav-link">Songs list</Link>
+                                <Nav.Link as={Link} to="/songs">Songs list</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to="/about" className="nav-link">About us</Link>
+                                <Nav.Link as={Link} to="/about">About us</Nav.Link>
                             </Nav.Item>
                         </Nav>
                     </Col>
