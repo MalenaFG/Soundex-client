@@ -17,8 +17,8 @@ const SongsList = () => {
     const fetchSongsData = () => {
         axios
             .get(`${API_URL}/songs`)
-            .then((res) => {
-                setSongsData(res.data)
+            .then(({ data }) => {
+                setSongsData(data)
                 setIsLoading(false)
             })
             .catch(err => consele.log(err))
