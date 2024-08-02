@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import GenreListCard from "../GenreListCard/GenreListCard"
-import { Row } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 const API_URL = "http://localhost:5005"
 
 const GenresList = () => {
@@ -28,8 +28,8 @@ const GenresList = () => {
                     :
                     genresData.map(genre => {
                         return (
-                            <Col md={4} >
-                                <GenreListCard key={genre.id} {...genre} />
+                            <Col md={4} key={genre.id}>
+                                <GenreListCard {...genre} />
                             </Col>
                         )
                     })

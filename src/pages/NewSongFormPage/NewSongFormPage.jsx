@@ -1,10 +1,17 @@
+import { Col, Container, Row } from "react-bootstrap"
 import NewSongForm from "../../components/Forms/NewSongForm"
 
 const NewSongFormPage = () => {
     return (
         <section className="NewSongFormPage">
-            <h1>Add new song</h1>
-            {<NewSongForm />}
+            <Container>
+                <Row>
+                    <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+                        <h1>Add new song</h1>
+                        {<NewSongForm />}
+                    </Col>
+                </Row>
+            </Container>
         </section>
     )
 }
