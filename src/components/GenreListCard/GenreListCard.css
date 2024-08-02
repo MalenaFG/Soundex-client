@@ -1,0 +1,7 @@
+.GenreListCard .card .ratio {
+    overflow: hidden;
+}
+
+.GenreListCard .card .ratio .card-img-top {
+    height: auto;
+}

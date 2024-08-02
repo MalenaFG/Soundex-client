@@ -1,14 +1,16 @@
 import { Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import GenresList from "../../components/GenresList/GenresList"
 
 const GenresListPage = () => {
     return (
-        <div className="GenresListPage">
-            <h1>Soy GenresListPage</h1>
+        <section className="GenresListPage">
+            <h1>Genres</h1>
+            <GenresList />
             <Link to="/genres/new">
                 <Button variant="outline-info" className="shadow">Add new Genre</Button>
             </Link>
-        </div>
+        </section>
     )
 }
 
