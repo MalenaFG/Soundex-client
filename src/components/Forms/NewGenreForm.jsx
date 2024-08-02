@@ -39,11 +39,6 @@ const NewGenreForm = () => {
             })
     }
 
-    // Refactor validateForm to avoid check the isMainstream key of formValues (not mandatory)
-    // const validateForm = (formBody) => {
-    //     return !Object.values(formBody).every(elm => elm !== null || elm === "")
-    // }
-
     const handleSubmit = (event) => {
         event.preventDefault()
         const countriesArray = originsValues.countries.split(",")
