@@ -18,7 +18,6 @@ const GenresList = () => {
         axios
             .get(`${API_URL}/genres`)
             .then(({ data }) => {
-                // TODO: DESTRUCTURAR DATA EN TODOS LOS AXIOS
                 setGenresData(data)
                 setIsLoading(false)
             })

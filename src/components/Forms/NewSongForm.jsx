@@ -1,5 +1,9 @@
-import { useState } from "react"
+import axios from "axios"
+import { useEffect, useState } from "react"
 import { Button, Form, Row, Col } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
+
+const API_URL = 'http://localhost:5005'
 
 const NewSongForm = () => {
 
@@ -21,6 +25,12 @@ const NewSongForm = () => {
         country: ''
     })
 
+    const [genresArr, setGenresArr] = useState([])
+
+    const [isLoaded, setIsLoaded] = useState(true)
+
+    const navigate = useNavigate()
+
     const handleInputChange = (event => {
 
         const { value, checked, type, name } = event.target
@@ -37,31 +47,78 @@ const NewSongForm = () => {
             setArtistData({ ...artistData, [name]: stateValue })
     })
 
-    //const handleSubmit = (() => { })
+    const handleSubmit = e => {
+        e.preventDefault()
+        songData.songBy = artistData
+        songData.genreId = Number(songData.genreId)
+        const requestBody = songData
 
+        axios
+            .post(`${API_URL}/songs`, requestBody)
+            .then(res => navigate('/songs'))
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getAllGenres()
+    }, [])
+
+    const getAllGenres = () => {
+        const arr = []
+        axios
+            .get(`${API_URL}/genres`)
+            .then(({ data }) => {
+                data.map(elm => {
+                    arr.push({ id: elm.id, name: elm.name })
+                })
+                setGenresArr(arr)
+                setIsLoaded(false)
+            })
+            .catch(err => console.log(err))
+
+        console.log(genresArr)
+    }
 
 
 
     return (
         <div className="NewSongForm">
-            <Form >
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="videoId">
-                    <Form.Label>Song:</Form.Label>
-                    <Form.Control value={songData.video} type="text" placeholder="Enter YouTube url" onChange={handleInputChange} name="video" />
+                    <Form.Label>Song:<sup>*</sup></Form.Label>
+                    <Form.Control value={songData.video} type="text" placeholder="Enter YouTube url" onChange={handleInputChange} name="video" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="imageId">
-                    <Form.Label>Cover:</Form.Label>
-                    <Form.Control value={songData.cover} type="text" placeholder="Enter url" onChange={handleInputChange} name="cover" />
+                    <Form.Label>Cover:<sup>*</sup></Form.Label>
+                    <Form.Control value={songData.cover} type="text" placeholder="Enter url" onChange={handleInputChange} name="cover" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="titleId">
-                    <Form.Label>Song title:</Form.Label>
-                    <Form.Control value={songData.title} type="text" placeholder="Enter song title" onChange={handleInputChange} name="title" />
+                    <Form.Label>Song title:<sup>*</sup></Form.Label>
+                    <Form.Control value={songData.title} type="text" placeholder="Enter song title" onChange={handleInputChange} name="title" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="genreId">
-                    <Form.Label>Song genre:</Form.Label>
-                    <Form.Control value={songData.genreId} type="number" placeholder="Choose genre" onChange={handleInputChange} name="genreId" />
+                    <Form.Label>Song genre:<sup>*</sup></Form.Label>
+                    <Form.Select aria-label="Default select example" value={songData.genreId} type="number" onChange={handleInputChange} name="genreId" required>
+
+                        {
+                            isLoaded
+                                ?
+                                <option>Loading...</option>
+                                :
+                                <>
+                                    <option>Select genre</option>
+                                    {
+                                        genresArr.map(elm => {
+                                            console.log(elm)
+                                            return <option key={elm.id} value={`${elm.id}`}>{elm.name}</option>
+                                        })
+                                    }
+                                </>
+                        }
+
+                    </Form.Select>
                 </Form.Group>
 
                 <Row className="mb-3">
@@ -99,8 +156,8 @@ const NewSongForm = () => {
                 <hr />
 
                 <Form.Group className="mb-3" controlId="bandId">
-                    <Form.Label>Band or Solo artist:</Form.Label>
-                    <Form.Control value={artistData.band} type="text" placeholder="Enter band or solo artist" onChange={handleInputChange} name="band" />
+                    <Form.Label>Band or Solo artist:<sup>*</sup></Form.Label>
+                    <Form.Control value={artistData.band} type="text" placeholder="Enter band or solo artist" onChange={handleInputChange} name="band" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="bandNationalityId">

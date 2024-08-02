@@ -3,7 +3,7 @@ import './GenreListCard.css'
 import { Button, Card, Col, Ratio } from "react-bootstrap"
 
 const GenreListCard = ({ name, origins, images, id }) => {
-    // TODO: REVISAR DESTRUCTURACION EN ENTRADA TODOS COMPONENTE
+
     return (
 
         <Card className="GenreListCard mb-3">

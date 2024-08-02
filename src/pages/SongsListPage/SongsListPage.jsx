@@ -7,6 +7,7 @@ const SongsListPage = () => {
         <section className="SongsListPage">
             <Container>
                 <h1>Songs</h1>
+
                 <SongsList />
 
                 <Link to={'/songs/new'}>
