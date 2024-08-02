@@ -1,9 +1,10 @@
 import { Button, Container } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
-const GenreCardPage = () => {
+
+const GenreDetailsPage = () => {
     return (
-        <div className="GenreCardPage">
+        <div className="GenreDetailsPage">
             <Container>
                 <h1>Soy GenreCardPage y tengo este botón</h1>
                 <Link to={'/songs/new'}>
@@ -13,4 +14,4 @@ const GenreCardPage = () => {
         </div>
     )
 }
-export default GenreCardPage
+export default GenreDetailsPage

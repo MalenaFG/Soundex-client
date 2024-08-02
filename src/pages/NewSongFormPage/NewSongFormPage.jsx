@@ -8,7 +8,7 @@ const NewSongFormPage = () => {
                 <Row>
                     <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
                         <h1>Add new song</h1>
-                        {<NewSongForm />}
+                        <NewSongForm />
                     </Col>
                 </Row>
             </Container>

@@ -8,8 +8,7 @@ const NewSongForm = () => {
         genreId: 0,
         title: '',
         songBy: {},
-        single: false,
-        album: false,
+        format: '',
         albumTitle: '',
         cover: '',
         video: '',
@@ -24,15 +23,18 @@ const NewSongForm = () => {
 
     const handleInputChange = (event => {
 
-        const { value, checked, name } = event.target
+        const { value, checked, type, name } = event.target
 
         console.log(value)
-        console.log(checked)
         console.log(name)
 
-        Object.keys(songData).includes(name) ?
-            setSongData({ ...songData, [name]: !checked ? value : checked })
-            : setArtistData({ ...artistData, [name]: !checked ? value : checked })
+        const stateValue = type != 'checkbox' ? value : checked
+
+        Object.keys(songData).includes(name)
+            ?
+            setSongData({ ...songData, [name]: stateValue })
+            :
+            setArtistData({ ...artistData, [name]: stateValue })
     })
 
     //const handleSubmit = (() => { })
@@ -68,9 +70,9 @@ const NewSongForm = () => {
                     <Col>
                         <Form.Check
                             inline
-                            checked={songData.single}
                             label="Single"
-                            name="single"
+                            name="format"
+                            value='single'
                             type="radio"
                             id={"inline-radio-1"}
                             onChange={handleInputChange}
@@ -79,9 +81,9 @@ const NewSongForm = () => {
                     <Col>
                         <Form.Check
                             inline
-                            checked={songData.album}
                             label="Album"
-                            name="single"
+                            name="format"
+                            value='album'
                             type="radio"
                             id={"inline-radio-2"}
                             onChange={handleInputChange}

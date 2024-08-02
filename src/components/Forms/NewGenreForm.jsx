@@ -25,7 +25,9 @@ const NewGenreForm = () => {
     const navigate = useNavigate()
 
     const handleFormValues = event => {
+
         const { value, checked, name } = event.target
+
         Object.keys(originsValues).includes(name)
             ?
             setOriginsValues({

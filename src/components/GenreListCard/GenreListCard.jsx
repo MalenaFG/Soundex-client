@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import './GenreListCard.css'
 import { Button, Card, Col, Ratio } from "react-bootstrap"
 
-const GenreListCard = (props) => {
-    const { name, origins, images, id } = props
+const GenreListCard = ({ name, origins, images, id }) => {
+    // TODO: REVISAR DESTRUCTURACION EN ENTRADA TODOS COMPONENTE
     return (
 
         <Card className="GenreListCard mb-3">

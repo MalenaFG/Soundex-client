@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Navigation = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" className="Navbar bg-body-tertiary">
+        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
             <Container>
                 <Link to="/" className="navbar-brand">
                     RECOMMENDATOR 3.000
@@ -11,7 +11,8 @@ const Navigation = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to={"/"} className="nav-link">Home</Link>
+                        {/* TODO: USAR PROP AS EN NAVLINKS DE BS */}
+                        <Nav.Link to={"/"} as={Link}>Home</Nav.Link>
                         <Link to={"/genres"} className="nav-link">Genres list</Link>
                         <Link to={"/songs"} className="nav-link">Songs list</Link>
                         <Link to={"/about"} className="nav-link">About us</Link>

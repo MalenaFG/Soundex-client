@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 const API_URL = "http://localhost:5005"
 
 const SongsList = () => {
+
     const [songsData, setSongsData] = useState()
     const [isLoading, setIsLoading] = useState(true)
 
@@ -25,14 +26,19 @@ const SongsList = () => {
 
     return (
         <ul className="SongsList justify-content-center">
-            {isLoading ?
-                <h2>Loading data...</h2>
-                : songsData.map(elm => {
-                    return (
-                        <Link to={`/songs/${elm.id}`} key={elm.id}><SongListCard {...elm} /></Link>
-                    )
-                })}
+            {
+                isLoading ?
+                    <h2>Loading data...</h2>
+                    : songsData.map(elm => {
+                        return (
+                            <Link to={`/songs/${elm.id}`} key={elm.id}>
+                                <SongListCard {...elm} />
+                            </Link>
+                        )
+                    })
+            }
         </ul>
     )
 }
+
 export default SongsList
