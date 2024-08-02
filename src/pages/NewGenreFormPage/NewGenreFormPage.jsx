@@ -6,8 +6,8 @@ const NewGenreFormPage = () => {
     return (
         <section className="NewGenreFormPage">
             <h1>Add new Genre</h1>
-            <Row className="justify-content-center" >
-                <Col md={8} lg={6}>
+            <Row >
+                <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
                     <NewGenreForm />
                 </Col>
             </Row>

@@ -15,7 +15,7 @@ const GenreListCard = (props) => {
                 <Card.Subtitle>{origins.date}</Card.Subtitle>
             </Card.Body>
             <Card.Footer className='d-flex justify-content-center'>
-                <Link to={`/${id}`} className='w-100'>
+                <Link to={`/genres/${id}`} className='w-100'>
                     <Button variant='outline-info' className='w-100'>Go to Genre</Button>
                 </Link>
             </Card.Footer>
