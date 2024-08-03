@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Navigation = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary mb-3">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     RECOMMENDATOR 3.000

@@ -111,7 +111,6 @@ const NewSongForm = () => {
                                     <option>Select genre</option>
                                     {
                                         genresArr.map(elm => {
-                                            console.log(elm)
                                             return <option key={elm.id} value={`${elm.id}`}>{elm.name}</option>
                                         })
                                     }

@@ -43,16 +43,16 @@ const NewGenreForm = () => {
             })
     }
 
-    const generateAndCleanArray = arr => arr.split(",").map(el => el.trim())
+    const generateCleanArray = arr => arr.split(",").map(el => el.trim())
 
     const handleSubmit = event => {
 
         event.preventDefault()
 
-        formValues.origins = generateAndCleanArray(originsValues.countries)
-        formValues.linkedBands = generateAndCleanArray(formValues.linkedBands)
-        formValues.childrenGenres = generateAndCleanArray(formValues.childrenGenres)
-        formValues.images = generateAndCleanArray(formValues.images)
+        formValues.origins = generateCleanArray(originsValues.countries)
+        formValues.linkedBands = generateCleanArray(formValues.linkedBands)
+        formValues.childrenGenres = generateCleanArray(formValues.childrenGenres)
+        formValues.images = generateCleanArray(formValues.images)
 
         const requestBody = formValues
 

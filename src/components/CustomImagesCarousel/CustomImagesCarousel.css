@@ -1,0 +1,14 @@
+.CustomImagesCarousel img {
+    object-fit: cover;
+}
+
+[data-bs-theme="dark"] .CustomImagesCarousel.carousel .carousel-indicators [data-bs-target],
+[data-bs-theme="dark"] .CustomImagesCarousel.carousel .carousel-indicators [data-bs-target] {
+    filter: invert(100%);
+
+}
+
+[data-bs-theme="dark"] .CustomImagesCarousel.carousel .carousel-control-prev-icon,
+[data-bs-theme="dark"] .CustomImagesCarousel.carousel .carousel-control-next-icon {
+    filter: invert(0%) grayscale(100%);
+}
