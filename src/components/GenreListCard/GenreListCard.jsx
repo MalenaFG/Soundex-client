@@ -15,9 +15,7 @@ const GenreListCard = ({ name, origins, images, id }) => {
                 <Card.Subtitle>{origins.date}</Card.Subtitle>
             </Card.Body>
             <Card.Footer className='d-flex justify-content-center'>
-                <Link to={`/genres/${id}`} className='w-100'>
-                    <Button variant='outline-info' className='w-100'>Go to Genre</Button>
-                </Link>
+                <Button as={Link} to={`/genres/${id}`} variant='outline-info' className='w-100'>Go to Genre</Button>
             </Card.Footer>
         </Card>
 
