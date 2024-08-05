@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom"
 import CustomImagesCarousel from "../../components/CustomImagesCarousel/CustomImagesCarousel"
 import GenreDetailsSidebar from "../../components/GenreDetailsSidebar/GenreDetailsSidebar"
 import SongListCard from "../../components/SongListCard/SongListCard"
+import PlaylistPlayer from "../../components/PlaylistPlayer/PlaylistPlayer"
 
 const API_URL = "http://localhost:5005"
 
@@ -62,7 +63,7 @@ const GenreDetailsPage = () => {
                             </div>
                             <div className="info">
                                 <Row>
-                                    <Col md={{ span: 6 }}>
+                                    <Col md={{ span: 7 }}>
                                         <div className="d-flex justify-content-between align-items-between flex-wrap">
                                             <h1>
                                                 {name}
@@ -87,18 +88,10 @@ const GenreDetailsPage = () => {
 
 
                                     </Col>
-                                    <Col md={{ span: 6 }}>
-                                        <ul className="justify-content-center">
-                                            {
-                                                songsData.map(elm => {
-                                                    return (
+                                    <Col md={{ span: 5 }}>
 
-                                                        <SongListCard key={elm.id} {...elm} />
+                                        <PlaylistPlayer songsData={songsData} isLoading={isLoading} />
 
-                                                    )
-                                                })
-                                            }
-                                        </ul>
                                     </Col>
                                 </Row>
 
