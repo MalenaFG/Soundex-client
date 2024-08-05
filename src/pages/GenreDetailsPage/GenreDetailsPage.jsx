@@ -52,8 +52,8 @@ const GenreDetailsPage = () => {
                                         <Button variant="outline-info" className="shadow" size="lg">Back to Genres list</Button>
                                     </Link>
 
-                                    <Link to={'/songs/new'} >
-                                        <Button variant="info" className="shadow" size="lg">Add new Song</Button>
+                                    <Link to={`/genres/edit/${genreId}`} >
+                                        <Button variant="info" className="shadow" size="lg">Edit Genre</Button>
                                     </Link>
 
                                 </div>
@@ -81,20 +81,19 @@ const GenreDetailsPage = () => {
                                                         isMainstream
                                                             ?
                                                             <Badge pill bg='warning' text="dark" className="ms-3 fs-6">Mainstream</Badge>
-                                                            : ''
+                                                            :
+                                                            ''
                                                     }
                                                 </sup>
                                             </h1>
                                             <Badge pill className="d-flex align-items-center fs-5">
-                                                Rate: {rate}
+                                                Rating: {rate}
                                             </Badge>
                                         </div>
                                         <hr />
                                         <p>{description}</p>
                                     </Col>
                                 </Row>
-
-
 
                             </div>
                         </>

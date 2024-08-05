@@ -16,7 +16,8 @@ const NewGenreForm = () => {
         isMainstream: false,
         parentGenre: "",
         childrenGenres: [],
-        images: []
+        images: [],
+        rate: 0
     })
 
     const [originsValues, setOriginsValues] = useState({
@@ -49,7 +50,8 @@ const NewGenreForm = () => {
 
         event.preventDefault()
 
-        formValues.origins = generateCleanArray(originsValues.countries)
+        formValues.origins.countries = generateCleanArray(originsValues.countries)
+        formValues.origins.date = originsValues.date
         formValues.linkedBands = generateCleanArray(formValues.linkedBands)
         formValues.childrenGenres = generateCleanArray(formValues.childrenGenres)
         formValues.images = generateCleanArray(formValues.images)

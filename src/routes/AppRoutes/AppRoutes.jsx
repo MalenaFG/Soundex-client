@@ -7,6 +7,7 @@ import SongsListPage from '../../pages/SongsListPage/SongsListPage'
 import SongDetailsPage from '../../pages/SongDetailsPage/SongDetailsPage'
 import NewSongFormPage from '../../pages/NewSongFormPage/NewSongFormPage'
 import AboutUsPage from '../../pages/AboutUsPage/AboutUsPage'
+import EditGenreFormPage from '../../pages/EditGenreFormPage/EditGenreFormPage'
 
 
 const AppRoutes = () => {
@@ -15,6 +16,7 @@ const AppRoutes = () => {
             <Route path='/' element={<HomePage />} />
             <Route path='/genres' element={<GenresListPage />} />
             <Route path='/genres/:genreId' element={<GenreDetailsPage />} />
+            <Route path='/genres/edit/:genreId' element={<EditGenreFormPage />} />
             <Route path='/genres/new' element={<NewGenreFormPage />} />
             <Route path='/songs' element={<SongsListPage />} />
             <Route path='/songs/:songId' element={<SongDetailsPage />} />
