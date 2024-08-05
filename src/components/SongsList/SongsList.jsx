@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import SongListCard from "../SongListCard/SongListCard"
-import { Link } from "react-router-dom"
+import { ListGroup } from "react-bootstrap"
 
 const API_URL = "http://localhost:5005"
 
@@ -25,7 +25,7 @@ const SongsList = () => {
     }
 
     return (
-        <ul className="SongsList justify-content-center">
+        <ListGroup className="SongsList mb-4">
             {
                 isLoading ?
                     <h2>Loading data...</h2>
@@ -37,7 +37,7 @@ const SongsList = () => {
                         )
                     })
             }
-        </ul>
+        </ListGroup>
     )
 }
 
