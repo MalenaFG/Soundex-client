@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Button, Col, Form, Row } from "react-bootstrap"
+import { Button, Col, Form, InputGroup, Row, Stack } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { generateCleanArray } from "../../utils/genres-utils"
 
@@ -52,7 +52,7 @@ const EditGenreForm = () => {
                     isMainstream: data.isMainstream,
                     parentGenre: data.parentGenre,
                     childrenGenres: data.childrenGenres.toString(),
-                    images: data.images.toString(),
+                    images: data.images,
                     rate: data.rate
                 })
             })
@@ -76,6 +76,23 @@ const EditGenreForm = () => {
             })
     }
 
+    const handleUrlsList = (event, idx) => {
+        const { value } = event.target
+        const formValuesImagesCopy = [...formValues.images]
+        formValuesImagesCopy[idx] = value
+        setFormValues({ ...formValues, images: formValuesImagesCopy })
+    }
+
+    const addNewUrl = () => {
+        setFormValues({ ...formValues, images: [...formValues.images, ''] })
+    }
+
+    const handleDeleteImage = (event, idx) => {
+        const formValuesImagesCopy = [...formValues.images]
+        formValuesImagesCopy.splice(idx, 1)
+        setFormValues({ ...formValues, images: formValuesImagesCopy })
+    }
+
     const handleSubmit = event => {
 
         event.preventDefault()
@@ -84,7 +101,6 @@ const EditGenreForm = () => {
         formValues.origins.date = originsValues.date
         formValues.linkedBands = generateCleanArray(formValues.linkedBands)
         formValues.childrenGenres = generateCleanArray(formValues.childrenGenres)
-        formValues.images = generateCleanArray(formValues.images)
 
         const requestBody = { ...formValues, rate: 0 }
 
@@ -192,14 +208,34 @@ const EditGenreForm = () => {
 
                 <Form.Group className="mb-3" controlId="">
                     <Form.Label>Images</Form.Label>
-                    <Form.Control
-                        onChange={handleFormValues}
-                        type="text"
-                        placeholder="type URLs separated with commas"
-                        name="images"
-                        value={formValues.images} />
+                    {
+                        formValues.images.map((image, idx) => {
+                            return (
+                                <InputGroup key={`urls-${idx}`} className="mb-3" >
+                                    <Form.Control
+                                        onChange={event => handleUrlsList(event, idx)}
+                                        type="text"
+                                        placeholder="type image URL"
+                                        name="images"
+                                        value={formValues.images[idx]}
+                                        aria-describedby="Image url" />
+                                    <Button onClick={event => handleDeleteImage(event, idx)} variant="outline-danger" id="delete-image-btn">
+                                        Delete url
+                                    </Button>
+                                </InputGroup>
+                            )
+                        })
+                    }
+                    <div className="d-flex justify-content-center">
+                        <Button onClick={addNewUrl} variant="light" size="sm">Add image</Button>
+                    </div>
                 </Form.Group>
+                <Stack gap={2}>
+                    <figure>
 
+                        <img src="" alt="" />
+                    </figure>
+                </Stack>
                 <Button variant="outline-info" type="submit" className="shadow">Save changes</Button>
 
             </Form>
