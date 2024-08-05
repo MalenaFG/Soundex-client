@@ -4,6 +4,7 @@ import { Badge, Button, Col, Container, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import CustomImagesCarousel from "../../components/CustomImagesCarousel/CustomImagesCarousel"
 import GenreDetailsSidebar from "../../components/GenreDetailsSidebar/GenreDetailsSidebar"
+import SongListCard from "../../components/SongListCard/SongListCard"
 
 const API_URL = "http://localhost:5005"
 
@@ -11,13 +12,15 @@ const GenreDetailsPage = () => {
 
     const { genreId } = useParams()
     const [genreData, setGenreData] = useState()
+    const [songsData, setSongsData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     const fetchGenreData = () => {
         axios
-            .get(`${API_URL}/genres/${genreId}`)
+            .get(`${API_URL}/genres/${genreId}?_embed=songs`)
             .then(({ data }) => {
                 setGenreData(data)
+                setSongsData(data.songs)
                 setIsLoading(false)
             })
             .catch(err => console.log(err))
@@ -48,31 +51,18 @@ const GenreDetailsPage = () => {
 
                                 <div className="d-flex justify-content-between">
 
-                                    <Link to="/genres">
-                                        <Button variant="outline-info" className="shadow" size="lg">Back to Genres list</Button>
-                                    </Link>
-
-                                    <Link to={`/genres/edit/${genreId}`} >
-                                        <Button variant="info" className="shadow" size="lg">Edit Genre</Button>
-                                    </Link>
+                                    <Button as={Link} to="/genres" variant="outline-info" className="shadow" size="lg">Back to Genres list</Button>
+                                    <Button as={Link} to={`/genres/edit/${genreId}`} variant="info" className="shadow" size="lg">Edit Genre</Button>
 
                                 </div>
 
                                 <hr />
 
-                                <CustomImagesCarousel imagesArray={images} />
-
-                                <hr />
 
                             </div>
                             <div className="info">
                                 <Row>
-                                    <Col md={{ span: 5 }}>
-
-                                        <GenreDetailsSidebar {...genreData} />
-
-                                    </Col>
-                                    <Col md={{ span: 7 }}>
+                                    <Col md={{ span: 6 }}>
                                         <div className="d-flex justify-content-between align-items-between flex-wrap">
                                             <h1>
                                                 {name}
@@ -88,6 +78,27 @@ const GenreDetailsPage = () => {
                                         </div>
                                         <hr />
                                         <p>{description}</p>
+
+                                        <CustomImagesCarousel imagesArray={images} />
+
+                                        <hr />
+
+                                        <GenreDetailsSidebar {...genreData} />
+
+
+                                    </Col>
+                                    <Col md={{ span: 6 }}>
+                                        <ul className="justify-content-center">
+                                            {
+                                                songsData.map(elm => {
+                                                    return (
+
+                                                        <SongListCard key={elm.id} {...elm} />
+
+                                                    )
+                                                })
+                                            }
+                                        </ul>
                                     </Col>
                                 </Row>
 

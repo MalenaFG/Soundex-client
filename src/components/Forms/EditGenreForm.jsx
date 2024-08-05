@@ -30,7 +30,11 @@ const EditGenreForm = () => {
 
     const { genreId } = useParams()
 
-    const addFormValues = () => {
+    useEffect(() => {
+        fetchFormData()
+    }, [])
+
+    const fetchFormData = () => {
         axios
             .get(`${API_URL}/genres/${genreId}`)
             .then(({ data }) => {
@@ -54,10 +58,6 @@ const EditGenreForm = () => {
             })
             .catch(err => console.log(err))
     }
-
-    useEffect(() => {
-        addFormValues()
-    }, [])
 
     const handleFormValues = event => {
 
