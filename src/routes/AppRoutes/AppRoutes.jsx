@@ -7,6 +7,7 @@ import SongsListPage from '../../pages/SongsListPage/SongsListPage'
 import SongDetailsPage from '../../pages/SongDetailsPage/SongDetailsPage'
 import NewSongFormPage from '../../pages/NewSongFormPage/NewSongFormPage'
 import AboutUsPage from '../../pages/AboutUsPage/AboutUsPage'
+import EditSongFormPage from '../../pages/EditSongFormPage/EditSongFormPage'
 
 
 const AppRoutes = () => {
@@ -19,6 +20,7 @@ const AppRoutes = () => {
             <Route path='/songs' element={<SongsListPage />} />
             <Route path='/songs/:songId' element={<SongDetailsPage />} />
             <Route path='/songs/new' element={<NewSongFormPage />} />
+            <Route path='/songs/edit/:songId' element={<EditSongFormPage />} />
             <Route path='/about' element={<AboutUsPage />} />
 
             <Route path='*' element={404} />

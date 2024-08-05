@@ -21,7 +21,7 @@ const SongsList = () => {
                 setSongsData(data)
                 setIsLoading(false)
             })
-            .catch(err => consele.log(err))
+            .catch(err => console.log(err))
     }
 
     return (
@@ -31,9 +31,9 @@ const SongsList = () => {
                     <h2>Loading data...</h2>
                     : songsData.map(elm => {
                         return (
-                            <Link to={`/songs/${elm.id}`} key={elm.id}>
-                                <SongListCard {...elm} />
-                            </Link>
+
+                            <SongListCard key={elm.id} {...elm} />
+
                         )
                     })
             }
