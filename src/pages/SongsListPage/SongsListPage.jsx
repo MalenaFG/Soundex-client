@@ -11,7 +11,7 @@ const SongsListPage = () => {
                 <SongsList />
 
                 <Link to={'/songs/new'}>
-                    <Button variant="outline-info" className="shadow">Add new Song</Button>
+                    <Button variant="info" className="shadow">Add new Song</Button>
                 </Link>
             </Container>
         </section>

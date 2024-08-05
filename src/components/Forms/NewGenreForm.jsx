@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { generateCleanArray } from "../../utils/genres-utils"
 
 const API_URL = "http://localhost:5005"
 
@@ -44,7 +45,6 @@ const NewGenreForm = () => {
             })
     }
 
-    const generateCleanArray = arr => arr.split(",").map(el => el.trim())
 
     const handleSubmit = event => {
 

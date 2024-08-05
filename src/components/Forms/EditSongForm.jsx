@@ -16,6 +16,7 @@ const EditSongForm = () => {
         albumTitle: '',
         cover: '',
         video: '',
+        rate: 0
     })
 
     const [artistData, setArtistData] = useState({
@@ -55,14 +56,13 @@ const EditSongForm = () => {
     }, [])
 
     const getAllGenres = () => {
-        const arr = []
         axios
             .get(`${API_URL}/genres`)
             .then(({ data }) => {
-                data.map(elm => {
-                    arr.push({ id: elm.id, name: elm.name })
+                const genresArr = data.map(elm => {
+                    return { id: elm.id, name: elm.name }
                 })
-                setGenresArr(arr)
+                setGenresArr(genresArr)
                 setIsLoaded(false)
             })
             .catch(err => console.log(err))
@@ -72,13 +72,13 @@ const EditSongForm = () => {
 
     const fetchSongData = () => {
 
-
         axios
             .get(`${API_URL}/songs/${songId}`)
             .then(response => {
-                setSongData(response.data)
+                setSongData({ ...response.data, rate: response.data.rate })
                 setArtistData(response.data.songBy)
             })
+            .catch(err => console.log(err))
     }
 
     const handleSubmit = e => {

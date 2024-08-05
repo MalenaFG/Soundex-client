@@ -1,13 +1,48 @@
 import { Container } from "react-bootstrap"
-import SongDetails from "../../components/SongDetails/SongDetails"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+
+const API_URL = 'http://localhost:5005'
 
 const SongDetailsPage = () => {
+    const [songDetails, setSongDetails] = useState()
+    const [isLoading, setIsLoading] = useState(true)
+
+    const { songId } = useParams()
+
+    useEffect(() => {
+        fetchSongData()
+    }, [])
+
+    const fetchSongData = () => {
+        axios
+            .get(`${API_URL}/songs/${songId}`)
+            .then(({ data }) => {
+                setSongDetails(data)
+                setIsLoading(false)
+            }
+
+            )
+    }
+
+    const { title, songBy, cover } = isLoading || songDetails
+    const { band, active, link, country } = isLoading || songBy
+
     return (
-        <div className="SongDetailsPage">
+        <section className="SongDetailsPage">
             <Container>
-                <SongDetails />
+                {isLoading
+                    ?
+                    <h1>Loading Details...</h1>
+                    :
+                    <article>
+                        <h1>{title} - {band}</h1>
+                        <img src={cover} alt={title} />
+                    </article>
+                }
             </Container>
-        </div>
+        </section>
     )
 }
 export default SongDetailsPage

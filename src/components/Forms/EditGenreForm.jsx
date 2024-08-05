@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
+import { generateCleanArray } from "../../utils/genres-utils"
 
 const API_URL = "http://localhost:5005"
 
@@ -74,8 +75,6 @@ const EditGenreForm = () => {
                 [name]: !checked ? value : checked
             })
     }
-
-    const generateCleanArray = arr => arr.split(",").map(el => el.trim())
 
     const handleSubmit = event => {
 

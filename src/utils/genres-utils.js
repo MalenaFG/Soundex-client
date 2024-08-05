@@ -1,0 +1,1 @@
+export const generateCleanArray = arr => arr.split(",").map(el => el.trim())

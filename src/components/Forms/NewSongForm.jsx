@@ -16,6 +16,7 @@ const NewSongForm = () => {
         albumTitle: '',
         cover: '',
         video: '',
+        rate: 0
     })
 
     const [artistData, setArtistData] = useState({
@@ -35,9 +36,6 @@ const NewSongForm = () => {
 
         const { value, checked, type, name } = event.target
 
-        console.log(value)
-        console.log(name)
-
         const stateValue = type != 'checkbox' ? value : checked
 
         Object.keys(songData).includes(name)
@@ -55,7 +53,7 @@ const NewSongForm = () => {
 
         axios
             .post(`${API_URL}/songs`, requestBody)
-            .then(res => navigate('/songs'))
+            .then(() => navigate('/songs'))
             .catch(err => console.log(err))
     }
 
