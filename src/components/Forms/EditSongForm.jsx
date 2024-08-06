@@ -89,7 +89,7 @@ const EditSongForm = () => {
 
         axios
             .put(`${API_URL}/songs/${songId}`, requestBody)
-            .then(res => navigate(`/songs`))
+            .then(() => navigate(`/songs`))
             .catch(err => console.log(err))
     }
 
@@ -200,7 +200,7 @@ const EditSongForm = () => {
                 </Form.Group>
                 <hr />
                 <Button variant="outline-info" type="submit" className="shadow" >
-                    Edit Song
+                    Save changes
                 </Button>
             </Form>
         </div>
