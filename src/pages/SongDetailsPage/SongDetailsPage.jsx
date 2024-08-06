@@ -3,13 +3,14 @@ import axios from "axios"
 import ReactPlayer from 'react-player/youtube'
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import starEmpty from '../../assets/star-empty.png'
-import starFull from '../../assets/star-full.png'
+import StarsRating from "../../components/StarsRating/StarsRating"
+
 const API_URL = 'http://localhost:5005'
 
 const SongDetailsPage = () => {
     const [songDetails, setSongDetails] = useState()
     const [isLoading, setIsLoading] = useState(true)
+    const [stars, setStars] = useState(0)
 
     const { songId } = useParams()
 
@@ -17,14 +18,29 @@ const SongDetailsPage = () => {
         fetchSongData()
     }, [])
 
+
+    useEffect(() => {
+        updateRating()
+    }, [stars])
+
+
     const fetchSongData = () => {
         axios
             .get(`${API_URL}/songs/${songId}`)
             .then(({ data }) => {
                 setSongDetails(data)
                 setIsLoading(false)
-            }
+                setStars(data.rate)
+            })
+    }
 
+    const updateRating = () => {
+        stars != 0
+            &&
+            (axios
+                .put(`${API_URL}/songs/${songId}`, { ...songDetails, rate: stars })
+                .then(() => fetchSongData())
+                .catch(err => console.log(err))
             )
     }
 
@@ -51,8 +67,19 @@ const SongDetailsPage = () => {
                                 <Col md={{ span: 6, order: 0 }} xs={{ order: 1 }} className="d-flex flex-column align-items-center">
                                     <Card body>
                                         <Row>
-                                            <h1>{title}</h1>
+                                            <Col md={{ span: 9 }}>
+                                                <h1>
+                                                    {title}
+                                                </h1>
+                                            </Col>
+                                            <Col md={{ span: 3 }}>
+                                                <sup>
+                                                    {<StarsRating stars={stars} setStars={setStars} id={songId} />}
+                                                </sup>
+                                            </Col>
+
                                             <hr />
+
                                             <Col md={{ span: 6 }}>
                                                 <Ratio aspectRatio="1x1" style={{ width: "200px" }}>
                                                     <Image src={cover} alt={title} style={{ objectFit: "cover" }} />
@@ -60,7 +87,7 @@ const SongDetailsPage = () => {
                                             </Col>
                                             <Col md={{ span: 6 }} className="d-flex flex-column justify-content-between">
                                                 <h3 className="mb-3" >
-                                                    Song by: <Link to={link}>{band}</Link></h3>
+                                                    Song by: <br /> <Link to={link}>{band}</Link></h3>
                                                 <h5 className="mb-3">
                                                     {
                                                         active && <Badge pill bg='warning' text="dark" className="ms-3 fs-6">Still Active</Badge>

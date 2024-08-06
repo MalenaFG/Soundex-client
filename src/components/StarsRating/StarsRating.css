@@ -1,0 +1,9 @@
+.StarsRating {
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.star {
+    height: auto;
+    width: 20px;
+}
