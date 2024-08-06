@@ -1,11 +1,18 @@
 import { Nav, Navbar, Container, Form } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import boombox from "../../assets/boombox.svg"
 
 const Navigation = () => {
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary mb-3">
             <Container>
-                <Navbar.Brand as={Link} to="/">
+                <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+                    <img
+                        src={boombox}
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-middle me-3"
+                        alt="RECOMMENDATOR 3.000" />
                     RECOMMENDATOR 3.000
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
