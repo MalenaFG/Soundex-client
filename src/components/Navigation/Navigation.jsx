@@ -5,7 +5,7 @@ import soundex from "../../assets/soundex.svg"
 
 const Navigation = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary mb-3">
+        <Navbar collapseOnSelect expand="lg" className="bg-body-dark">
             <Container>
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
                     <img
@@ -18,11 +18,10 @@ const Navigation = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link to={"/"} as={Link}>Home</Nav.Link>
-                        <Nav.Link to={"/genres"} as={Link}>Genres list</Nav.Link>
-                        <Nav.Link to={"/songs"} as={Link} >Songs list</Nav.Link>
-                        <Nav.Link to={"/about"} as={Link} >About us</Nav.Link>
+                    <Nav className="me-auto" >
+                        <Nav.Link to={"/genres"} as={Link} className="mx-md-2">Music genres</Nav.Link>
+                        <Nav.Link to={"/songs"} as={Link} className="mx-md-2">Songs</Nav.Link>
+                        <Nav.Link to={"/about"} as={Link} className="mx-md-2">About us</Nav.Link>
                     </Nav>
                     <Nav>
                         <SongFilter />
