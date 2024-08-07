@@ -25,9 +25,10 @@ const SongFilter = () => {
         )
     }
 
-    const handleFilterValue = e => {
+    const handleFilterValue = () => {
         setSongResults([])
         value = ""
+
     }
 
     return (
@@ -36,6 +37,7 @@ const SongFilter = () => {
             <Form className="d-flex">
                 <Form.Control
                     onKeyUp={handleFilter}
+                    //onChange={handleFilterValue}
                     type="search"
                     placeholder="Search"
                     aria-label="Search"

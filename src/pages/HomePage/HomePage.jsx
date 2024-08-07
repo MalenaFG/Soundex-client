@@ -1,20 +1,32 @@
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Container, Image, Ratio, Row } from "react-bootstrap"
 import GenresCounter from "../../components/Counters/GenresCounter"
 import SongsCounter from "../../components/Counters/SongsCounter"
 import Logo from "../../assets/soundex.svg"
+import { CDNIMAGES } from "../../consts/images-consts"
 import "./HomePage.css"
 
 const HomePage = () => {
+
+    const { img2 } = CDNIMAGES
+
     return (
         <div className="HomePage">
             <Container>
                 <h1 className="fs-1">Soundex</h1>
                 <Row>
-                    <Col md={{ span: 8 }}>
+                    <Col md={{ span: 8 }} >
                         <p className="claim">Unlock New Beats: Dive into Genres You Love and Share Your Musical World.</p>
                     </Col>
                     <Col>
                         <img src={Logo} alt="Logo" className="logo" />
+                    </Col>
+                </Row>
+                <Row >
+                    <Col >
+                        <div style={{ height: '300px' }} className="imageContainer">
+
+                            <Image src={`${img2}`} alt="cassettes" className="img-fluid w-100" />
+                        </div>
                     </Col>
                 </Row>
                 <Row>
