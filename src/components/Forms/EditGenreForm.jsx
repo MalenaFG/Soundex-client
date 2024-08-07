@@ -45,15 +45,10 @@ const EditGenreForm = () => {
                 })
 
                 setFormValues({
-                    name: data.name,
+                    ...data,
                     origins: originsValues,
-                    description: data.description,
                     linkedBands: data.linkedBands.toString(),
-                    isMainstream: data.isMainstream,
-                    parentGenre: data.parentGenre,
-                    childrenGenres: data.childrenGenres.toString(),
-                    images: data.images,
-                    rate: data.rate
+                    childrenGenres: data.childrenGenres.toString()
                 })
             })
             .catch(err => console.log(err))
@@ -101,8 +96,9 @@ const EditGenreForm = () => {
         formValues.origins.date = originsValues.date
         formValues.linkedBands = generateCleanArray(formValues.linkedBands)
         formValues.childrenGenres = generateCleanArray(formValues.childrenGenres)
+        formValues.rate = 0
 
-        const requestBody = { ...formValues, rate: 0 }
+        const requestBody = { ...formValues }
 
         axios
             .put(`${API_URL}/genres/${genreId}`, requestBody)

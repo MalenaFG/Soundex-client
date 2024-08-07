@@ -10,8 +10,6 @@ const SongsList = () => {
     const [songsData, setSongsData] = useState()
     const [isLoading, setIsLoading] = useState(true)
 
-
-
     useEffect(() => {
         fetchSongsData()
     }, [])

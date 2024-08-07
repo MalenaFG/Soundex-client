@@ -25,7 +25,7 @@ const PlaylistPlayer = ({ songsData, isLoading }) => {
         })
     }
 
-    const pauseSong = idx => {
+    const pauseSong = () => {
         setPlayerState({ ...playerState, playing: false })
     }
 
@@ -80,7 +80,6 @@ const PlaylistPlayer = ({ songsData, isLoading }) => {
                                         </Nav.Link>
                                         <Badge bg='rebecca'>{song.albumTitle}</Badge>
                                     </span>
-
                                     <span>
                                         {
                                             playerState.idx === idx && playerState.playing
@@ -89,10 +88,8 @@ const PlaylistPlayer = ({ songsData, isLoading }) => {
                                                     <AnimatedMusicBars />
                                                     <Button onClick={() => pauseSong(idx)} variant='outline-info'>Pause</Button>
                                                 </Stack>
-
                                                 :
                                                 <Button onClick={() => loadSong(idx, true)} variant='outline-info'>Play</Button>
-
                                         }
                                     </span>
 

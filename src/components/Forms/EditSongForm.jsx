@@ -34,23 +34,20 @@ const EditSongForm = () => {
 
     const { songId } = useParams()
 
+    useEffect(() => {
+        getAllGenres()
+        fetchSongData()
+    }, [])
+
     const handleInputChange = (event => {
-
         const { value, checked, type, name } = event.target
-
         const stateValue = type != 'checkbox' ? value : checked
-
         Object.keys(songData).includes(name)
             ?
             setSongData({ ...songData, [name]: stateValue })
             :
             setArtistData({ ...artistData, [name]: stateValue })
     })
-
-    useEffect(() => {
-        getAllGenres()
-        fetchSongData()
-    }, [])
 
     const getAllGenres = () => {
         axios

@@ -33,11 +33,8 @@ const NewSongForm = () => {
     const navigate = useNavigate()
 
     const handleInputChange = (event => {
-
         const { value, checked, type, name } = event.target
-
         const stateValue = type != 'checkbox' ? value : checked
-
         Object.keys(songData).includes(name)
             ?
             setSongData({ ...songData, [name]: stateValue })
@@ -62,19 +59,16 @@ const NewSongForm = () => {
     }, [])
 
     const getAllGenres = () => {
-        const arr = []
         axios
             .get(`${API_URL}/genres`)
             .then(({ data }) => {
-                data.map(elm => {
-                    arr.push({ id: elm.id, name: elm.name })
+                const genresArr = data.map(elm => {
+                    return ({ id: elm.id, name: elm.name })
                 })
-                setGenresArr(arr)
+                setGenresArr(genresArr)
                 setIsLoaded(false)
             })
             .catch(err => console.log(err))
-
-        console.log(genresArr)
     }
 
 

@@ -18,11 +18,9 @@ const SongDetailsPage = () => {
         fetchSongData()
     }, [])
 
-
     useEffect(() => {
         updateRating()
     }, [stars])
-
 
     const fetchSongData = () => {
         axios

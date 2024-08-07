@@ -29,7 +29,6 @@ const GenreDetailsSidebar = ({
                                 </ListGroup>
 
                             </>
-
                             :
                             <>
                                 <h6>Origins Country:</h6>

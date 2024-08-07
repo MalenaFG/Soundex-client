@@ -10,23 +10,19 @@ const SongFilter = () => {
     const handleFilter = e => {
         const { value } = e.target
         filteredData(value)
-        console.log(value)
-        console.log(typeof (value))
     }
 
     const [songResults, setSongResults] = useState([])
 
     const filteredData = query => {
-        axios
-            .get(`${API_URL}/songs?title_like=${query}`)
-            .then(({ data }) => {
-                query === ""
-                    ?
-                    setSongResults([])
-                    :
-                    setSongResults(data)
-            })
-            .catch(err => console.log(err))
+
+        query && (
+
+            axios
+                .get(`${API_URL}/songs?title_like=${query}`)
+                .then(({ data }) => setSongResults(data))
+                .catch(err => console.log(err))
+        )
     }
 
     const handleFilterValue = e => {
@@ -52,27 +48,23 @@ const SongFilter = () => {
                 {
                     songResults.map(eachSong => {
                         return (
-                            <Link to={`/songs/${eachSong.id}`} onClick={handleFilterValue} key={eachSong.id}> <ListGroup.Item>
-                                <Row>
-                                    <Col xs={{ span: 4 }}>
-                                        <img src={eachSong.cover} alt={eachSong.title} style={{ maxWidth: "100%" }} />
-                                    </Col>
-                                    <Col>
-                                        {eachSong.title}
-                                    </Col>
-                                </Row>
-                            </ListGroup.Item>
+                            <Link to={`/songs/${eachSong.id}`} onClick={handleFilterValue} key={eachSong.id}>
+                                <ListGroup.Item>
+                                    <Row>
+                                        <Col xs={{ span: 4 }}>
+                                            <img src={eachSong.cover} alt={eachSong.title} style={{ maxWidth: "100%" }} />
+                                        </Col>
+                                        <Col>
+                                            {eachSong.title}
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
                             </Link>
                         )
                     })
                 }
-
             </ListGroup>
-
-
-
         </div>
-
     )
 }
 

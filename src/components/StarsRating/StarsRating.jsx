@@ -27,11 +27,8 @@ const StarsRating = ({ stars, setStars }) => {
                         )
                     })
                 }
-
             </div>
-
         </div>
-
     )
 }
 
