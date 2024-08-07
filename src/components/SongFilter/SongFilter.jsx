@@ -10,8 +10,6 @@ const SongFilter = () => {
     const handleFilter = e => {
         const { value } = e.target
         filteredData(value)
-        console.log(value)
-        console.log(typeof (value))
     }
 
     const [songResults, setSongResults] = useState([])

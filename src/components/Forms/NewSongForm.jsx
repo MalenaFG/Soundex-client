@@ -74,7 +74,6 @@ const NewSongForm = () => {
             })
             .catch(err => console.log(err))
 
-        console.log(genresArr)
     }
 
 

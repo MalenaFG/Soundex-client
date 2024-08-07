@@ -21,7 +21,6 @@ const GenreDetailsPage = () => {
             .get(`${API_URL}/genres/${genreId}?_embed=songs`)
             .then(({ data }) => {
                 setGenreData(data)
-                console.log(data.songs)
                 data.songs.length > 0 && setSongsData(data.songs)
                 setIsLoading(false)
             })
