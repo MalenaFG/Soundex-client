@@ -3,6 +3,8 @@ import { useState } from "react"
 import { Col, Form, ListGroup, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
+const API_URL = 'http://localhost:5005'
+
 const SongFilter = () => {
 
     const handleFilter = e => {
@@ -16,7 +18,7 @@ const SongFilter = () => {
 
     const filteredData = query => {
         axios
-            .get(`http://localhost:5005/songs?title_like=${query}`)
+            .get(`${API_URL}/songs?title_like=${query}`)
             .then(({ data }) => {
                 query === ""
                     ?
