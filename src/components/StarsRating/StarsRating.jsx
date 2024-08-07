@@ -12,11 +12,11 @@ const StarsRating = ({ stars, setStars }) => {
         <div className='StarsRating'>
 
             <div className='d-flex ' style={{ position: 'absolute' }}>
-                <img src={starEmpty} className='starEmpty1' onClick={() => handleStarChange(1)} />
-                <img src={starEmpty} className='starEmpty2' onClick={() => handleStarChange(2)} />
-                <img src={starEmpty} className='starEmpty3' onClick={() => handleStarChange(3)} />
-                <img src={starEmpty} className='starEmpty4' onClick={() => handleStarChange(4)} />
-                <img src={starEmpty} className='starEmpty5' onClick={() => handleStarChange(5)} />
+                <img src={starEmpty} className='starEmpty1' onClick={() => setStars && handleStarChange(1)} />
+                <img src={starEmpty} className='starEmpty2' onClick={() => setStars && handleStarChange(2)} />
+                <img src={starEmpty} className='starEmpty3' onClick={() => setStars && handleStarChange(3)} />
+                <img src={starEmpty} className='starEmpty4' onClick={() => setStars && handleStarChange(4)} />
+                <img src={starEmpty} className='starEmpty5' onClick={() => setStars && handleStarChange(5)} />
             </div>
 
             <div className='d-flex'>

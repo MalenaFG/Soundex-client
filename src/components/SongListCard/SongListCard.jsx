@@ -2,9 +2,10 @@ import { Button, Card, Col, Image, ListGroup, Ratio, Row } from "react-bootstrap
 import './SongListCard.css'
 import { Link } from "react-router-dom"
 import StarsRating from "../StarsRating/StarsRating"
+import { useState } from "react"
 
 
-const SongListCard = ({ title, songBy: { band }, cover, id }) => {
+const SongListCard = ({ title, songBy: { band }, cover, id, rate }) => {
 
 
     return (
@@ -18,7 +19,9 @@ const SongListCard = ({ title, songBy: { band }, cover, id }) => {
                 </Col>
                 <Col md={6} className="align-items-center d-flex">
                     <Button as={Link} to={`/songs/${id}`} variant="outline-info" size="lg"> {title}-{band}</Button>
-                    <StarsRating />
+
+                    <StarsRating stars={rate} id={id} />
+
                 </Col>
                 <Col md={4} className="align-items-center d-flex justify-content-center">
                     <Button as={Link} to={`/songs/edit/${id}`} variant="info">Edit this song</Button>

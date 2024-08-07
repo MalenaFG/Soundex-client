@@ -12,8 +12,8 @@ const Navigation = () => {
                         width="30"
                         height="30"
                         className="d-inline-block align-middle me-3"
-                        alt="RECOMMENDATOR 3.000" />
-                    RECOMMENDATOR 3.000
+                        alt="Soundex" />
+                    Soundex
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

@@ -4,7 +4,8 @@ const HomePage = () => {
     return (
         <div className="HomePage">
             <Container>
-                <h1>Soy HomePage</h1>
+                <h1>Soundex</h1>
+                <p>Unlock New Beats: Dive into Genres You Love and Share Your Musical World.</p>
             </Container>
         </div>
     )
