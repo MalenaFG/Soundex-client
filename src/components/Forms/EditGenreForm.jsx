@@ -110,6 +110,12 @@ const EditGenreForm = () => {
             .catch(err => console.log(err))
     }
 
+    const handleDeleteGenre = () => {
+        axios
+            .delete(`${API_URL}/genres/${genreId}`)
+            .then(res => navigate('/genres'))
+            .catch(err => console.log(err))
+    }
     return (
         <div className="EditGenreForm" >
 
@@ -230,13 +236,11 @@ const EditGenreForm = () => {
                         <Button onClick={addNewUrl} variant="light" size="sm">Add image</Button>
                     </div>
                 </Form.Group>
-                <Stack gap={2}>
-                    <figure>
+                <Stack direction="horizontal" gap={3} className="justify-content-between">
+                    <Button variant="outline-info" type="submit" className="shadow">Save changes</Button>
+                    <Button variant="outline-danger" className="shadow" onClick={() => confirm("Are you sure?") && handleDeleteGenre()}>Remove Genre from Data base</Button>
 
-                        <img src="" alt="" />
-                    </figure>
                 </Stack>
-                <Button variant="outline-info" type="submit" className="shadow">Save changes</Button>
 
             </Form>
         </div>

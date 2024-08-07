@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Button, Form, Row, Col } from "react-bootstrap"
+import { Button, Form, Row, Col, Stack } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 
 const API_URL = 'http://localhost:5005'
@@ -38,9 +38,6 @@ const EditSongForm = () => {
 
         const { value, checked, type, name } = event.target
 
-        console.log(value)
-        console.log(name)
-
         const stateValue = type != 'checkbox' ? value : checked
 
         Object.keys(songData).includes(name)
@@ -67,7 +64,6 @@ const EditSongForm = () => {
             })
             .catch(err => console.log(err))
 
-        console.log(genresArr)
     }
 
     const fetchSongData = () => {
@@ -93,6 +89,12 @@ const EditSongForm = () => {
             .catch(err => console.log(err))
     }
 
+    const handleDeleteGenre = () => {
+        axios
+            .delete(`${API_URL}/songs/${songId}`)
+            .then(res => navigate('/songs'))
+            .catch(err => console.log(err))
+    }
 
     return (
         <div className="NewSongForm">
@@ -124,7 +126,6 @@ const EditSongForm = () => {
                                     <option>Select genre</option>
                                     {
                                         genresArr.map(elm => {
-                                            console.log(elm)
                                             return <option key={elm.id} value={`${elm.id}`}>{elm.name}</option>
                                         })
                                     }
@@ -198,10 +199,17 @@ const EditSongForm = () => {
                     <Form.Label>Band or Solo artist website:</Form.Label>
                     <Form.Control value={artistData.link} type="text" placeholder="Enter website" onChange={handleInputChange} name="link" />
                 </Form.Group>
+
                 <hr />
-                <Button variant="outline-info" type="submit" className="shadow" >
-                    Save changes
-                </Button>
+
+                <Stack direction="horizontal" gap={3} className="justify-content-between">
+
+                    <Button variant="outline-info" type="submit" className="shadow" >
+                        Save changes
+                    </Button>
+                    <Button variant="outline-danger" className="shadow" onClick={() => confirm("Are you sure?") && handleDeleteGenre()}>Remove Song from Data base</Button>
+
+                </Stack>
             </Form>
         </div>
     )

@@ -21,7 +21,8 @@ const GenreDetailsPage = () => {
             .get(`${API_URL}/genres/${genreId}?_embed=songs`)
             .then(({ data }) => {
                 setGenreData(data)
-                setSongsData(data.songs)
+                console.log(data.songs)
+                data.songs.length > 0 && setSongsData(data.songs)
                 setIsLoading(false)
             })
             .catch(err => console.log(err))
@@ -90,7 +91,9 @@ const GenreDetailsPage = () => {
                                     </Col>
                                     <Col md={{ span: 5 }}>
 
-                                        <PlaylistPlayer songsData={songsData} isLoading={isLoading} />
+                                        {
+                                            songsData.length > 0 && <PlaylistPlayer songsData={songsData} isLoading={isLoading} />
+                                        }
 
                                     </Col>
                                 </Row>
