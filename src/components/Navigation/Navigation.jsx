@@ -1,6 +1,7 @@
 import { Nav, Navbar, Container, Form } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import boombox from "../../assets/boombox.svg"
+import SongFilter from "../SongFilter/SongFilter"
 
 const Navigation = () => {
     return (
@@ -24,14 +25,7 @@ const Navigation = () => {
                         <Nav.Link to={"/about"} as={Link} >About us</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                        </Form>
+                        <SongFilter />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
