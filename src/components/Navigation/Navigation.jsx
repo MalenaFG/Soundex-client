@@ -1,6 +1,6 @@
 import { Nav, Navbar, Container, Form } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import boombox from "../../assets/boombox.svg"
+import soundex from "../../assets/soundex.svg"
 
 const Navigation = () => {
     return (
@@ -8,7 +8,7 @@ const Navigation = () => {
             <Container>
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
                     <img
-                        src={boombox}
+                        src={soundex}
                         width="30"
                         height="30"
                         className="d-inline-block align-middle me-3"
