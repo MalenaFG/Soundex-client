@@ -1,9 +1,12 @@
+import './PlaylistPlayer.css'
 import { useEffect, useState } from 'react'
-import { Badge, Button, Card, Col, ListGroup, Ratio, Row, Stack } from 'react-bootstrap'
+import { Badge, Button, Card, ListGroup, Nav, Ratio, Stack } from 'react-bootstrap'
 import ReactPlayer from 'react-player/youtube'
 import { Link } from 'react-router-dom'
+import AnimatedMusicBars from '../Players/AnimatedMusicBars'
 
 const PlaylistPlayer = ({ songsData, isLoading }) => {
+
     const [playerState, setPlayerState] = useState({
         url: null,
         playing: false,
@@ -42,13 +45,21 @@ const PlaylistPlayer = ({ songsData, isLoading }) => {
             <Card.Header>
                 <Ratio aspectRatio='16x9'>
                     <ReactPlayer
-                        controls
                         width='100%'
                         height='100%'
                         url={url}
                         playing={playing}
+                        config={{
+                            youtube: {
+                                playerVars: {
+                                    showinfo: 1,
+                                    disablekb: 1
+                                }
+                            }
+                        }}
                         onEnded={handleEndedSong} />
                 </Ratio>
+                <div className="yt-cover"></div>
             </Card.Header>
             <ListGroup variant='flush'>
                 {
@@ -60,18 +71,33 @@ const PlaylistPlayer = ({ songsData, isLoading }) => {
                             return <ListGroup.Item
                                 key={`playlist-${idx}`}
                                 variant={idx === playerState.idx && 'info'} >
+
                                 <Stack direction='horizontal' gap={3} className='justify-content-between'>
+
                                     <span className='w-auto'>
-                                        <Link to={`/songs/${song.id}`}>
+                                        <Nav.Link as={Link} to={`/songs/${song.id}`}>
                                             {song.songBy.band}: {song.title}
-                                        </Link>
-                                        <hr className='my-2' />
+                                        </Nav.Link>
                                         <Badge bg='rebecca'>{song.albumTitle}</Badge>
                                     </span>
-                                    <span >
-                                        <Button onClick={() => loadSong(idx, true)}>Play</Button>
+
+                                    <span>
+                                        {
+                                            playerState.idx === idx && playerState.playing
+                                                ?
+                                                <Stack direction='horizontal' gap={3} className='justify-content-end'>
+                                                    <AnimatedMusicBars />
+                                                    <Button onClick={() => pauseSong(idx)} variant='outline-info'>Pause</Button>
+                                                </Stack>
+
+                                                :
+                                                <Button onClick={() => loadSong(idx, true)} variant='outline-info'>Play</Button>
+
+                                        }
                                     </span>
+
                                 </Stack>
+
                             </ListGroup.Item>
                         })
                 }
