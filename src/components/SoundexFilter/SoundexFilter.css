@@ -1,0 +1,10 @@
+.search-thumbnail {
+    overflow: hidden;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-thumbnail img {
+    object-fit: cover;
+}

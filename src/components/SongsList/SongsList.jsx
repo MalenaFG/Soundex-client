@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import SongListCard from "../SongListCard/SongListCard"
-import { ListGroup } from "react-bootstrap"
+import { Col, Row, ListGroup } from "react-bootstrap"
 
 const API_URL = "http://localhost:5005"
 
@@ -25,19 +25,22 @@ const SongsList = () => {
     }
 
     return (
-        <ListGroup className="SongsList mb-4">
+        <Row className="SongsList mb-4">
             {
                 isLoading ?
                     <h2>Loading data...</h2>
                     : songsData.map(elm => {
                         return (
-
-                            <SongListCard key={elm.id} {...elm} />
+                            <Col md={{ span: 6 }} key={elm.id}>
+                                <div className="mb-4">
+                                    <SongListCard  {...elm} />
+                                </div>
+                            </Col>
 
                         )
                     })
             }
-        </ListGroup>
+        </Row>
     )
 }
 

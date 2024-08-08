@@ -3,6 +3,7 @@
 :root {
     --bs-font-sans-serif: "Inter", sans-serif;
     --bs-body-font-family: var(var(--bs-font-sans-serif));
+    --clr-main-yellow: #f5f5ac;
 }
 
 [data-bs-theme="dark"] {
@@ -18,4 +19,17 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+.yellow {
+    color: var(--clr-main-yellow);
+}
+
+.brand:active,
+.brand:visited {
+    color: var(--clr-main-yellow);
 }

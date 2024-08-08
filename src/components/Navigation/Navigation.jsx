@@ -1,7 +1,7 @@
 import './Navigation.css'
 import { Nav, Navbar, Container, Form } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import SongFilter from "../SongFilter/SongFilter"
+import SoundexFilter from "../SoundexFilter/SoundexFilter"
 import soundex from "../../assets/soundex.svg"
 
 const Navigation = () => {
@@ -9,7 +9,7 @@ const Navigation = () => {
         <Navbar collapseOnSelect expand="lg" className="Navigation bg-body-dark">
             <Container className='position-relative'>
 
-                <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+                <Navbar.Brand as={Link} to="/" className="brand d-flex align-items-center">
                     <img
                         src={soundex}
                         width="30"
@@ -30,7 +30,7 @@ const Navigation = () => {
                     </Nav>
 
                     <Nav>
-                        <SongFilter />
+                        <SoundexFilter />
                     </Nav>
 
                 </Navbar.Collapse>

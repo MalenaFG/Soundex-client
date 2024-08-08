@@ -16,7 +16,7 @@ const SongDetailsPage = () => {
 
     useEffect(() => {
         fetchSongData()
-    }, [])
+    }, [songId])
 
     useEffect(() => {
         updateRating()
@@ -54,8 +54,8 @@ const SongDetailsPage = () => {
                     :
                     <>
                         <div className="header d-flex justify-content-between">
-                            <Button as={Link} to={"/songs"} variant="outline-info" className="shadow" size="lg">Back to Songs list</Button>
-                            <Button as={Link} to={`/songs/edit/${songId}`} variant="info" className="shadow" size="lg" >Edit Song</Button>
+                            <Button as={Link} to={"/songs"} variant="outline-light" className="shadow" >Back to Songs list</Button>
+                            <Button as={Link} to={`/songs/edit/${songId}`} variant="light" className="shadow"  >Edit Song</Button>
                         </div>
 
                         <hr />
