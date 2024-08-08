@@ -15,6 +15,10 @@
     background-color: rebeccapurple;
 }
 
+.bg-yellow {
+    background-color: var(--clr-main-yellow);
+}
+
 body {
     font-optical-sizing: auto;
     font-weight: 400;
