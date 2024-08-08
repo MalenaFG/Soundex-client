@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap"
+import { Button, Container, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import SongsList from "../../components/SongsList/SongsList"
 
@@ -12,7 +12,7 @@ const SongsListPage = () => {
                 <SongsList />
 
                 <Link to={'/songs/new'}>
-                    <Button variant="info" className="shadow">Add new Song</Button>
+                    <Button variant="light" className="shadow">Add new Song</Button>
                 </Link>
             </Container>
         </section>

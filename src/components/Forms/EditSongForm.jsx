@@ -201,10 +201,10 @@ const EditSongForm = () => {
 
                 <Stack direction="horizontal" gap={3} className="justify-content-between">
 
-                    <Button variant="outline-info" type="submit" className="shadow" >
+                    <Button variant="outline-light" type="submit" >
                         Save changes
                     </Button>
-                    <Button variant="outline-danger" className="shadow" onClick={() => confirm("Are you sure?") && handleDeleteGenre()}>Remove Song from Data base</Button>
+                    <Button variant="outline-danger" onClick={() => confirm("Are you sure?") && handleDeleteGenre()}>Remove Song from Data base</Button>
 
                 </Stack>
             </Form>

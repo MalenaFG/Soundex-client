@@ -174,7 +174,7 @@ const NewSongForm = () => {
                     <Form.Control value={artistData.link} type="text" placeholder="Enter website" onChange={handleInputChange} name="link" />
                 </Form.Group>
                 <hr />
-                <Button variant="outline-info" type="submit" className="shadow" >
+                <Button variant="outline-light" type="submit" >
                     Add Song
                 </Button>
             </Form>
