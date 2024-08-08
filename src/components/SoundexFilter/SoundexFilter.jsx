@@ -9,7 +9,7 @@ const API_URL = 'http://localhost:5005'
 const SoundexFilter = () => {
 
     const [searchResults, setSearchResults] = useState([])
-
+    const [inputSearchValue, setInputSearchValue] = useState("")
 
     const filteredData = query => {
 
@@ -38,7 +38,13 @@ const SoundexFilter = () => {
     const handleFilterValue = e => {
         const { value } = e.target
         setSearchResults([])
-        value = ""
+        setInputSearchValue("")
+    }
+
+    const handleInputChange = e => {
+        const { value } = e.target
+        e.preventDefault()
+        setInputSearchValue(value)
     }
 
     return (
@@ -47,10 +53,11 @@ const SoundexFilter = () => {
             <Form className="d-flex">
                 <Form.Control
                     onKeyUp={handleFilter}
+                    onChange={handleInputChange}
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
-
+                    value={inputSearchValue}
                 />
             </Form>
 
@@ -60,7 +67,7 @@ const SoundexFilter = () => {
                 {
                     searchResults.map((eachSearch, idx) => {
                         return (
-                            <Link to={`/songs/${eachSearch.id}`} onClick={handleFilterValue} key={`${idx}-${eachSearch.id}`}>
+                            <Link as={Link} to={`/${eachSearch.cover ? 'songs' : 'genres'}/${eachSearch.id}`} onClick={handleFilterValue} key={`${idx}-${eachSearch.id}`} >
                                 <ListGroup.Item>
                                     <Row>
                                         <Col xs={{ span: 4 }} >
