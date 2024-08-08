@@ -80,19 +80,21 @@ const SongDetailsPage = () => {
 
                                             <Col md={{ span: 6 }}>
                                                 <Ratio aspectRatio="1x1" style={{ width: "200px" }}>
-                                                    <Image src={cover} alt={title} style={{ objectFit: "cover" }} />
+                                                    <Image src={cover} alt={title} style={{ objectFit: "cover" }} rounded />
                                                 </Ratio>
                                             </Col>
                                             <Col md={{ span: 6 }} className="d-flex flex-column justify-content-between">
                                                 <h3 className="mb-3" >
-                                                    Song by: <br /> <Link to={link}>{band}</Link></h3>
+                                                    Song by: <br /> {band}
+                                                </h3>
+                                                <a href={link} target="_blank" className="mb-3"><small>(www.oasis.com)</small></a>
                                                 <h5 className="mb-3">
                                                     {
-                                                        active && <Badge pill bg='warning' text="dark" className="ms-3 fs-6">Still Active</Badge>
+                                                        active && <Badge pill bg='yellow' text="dark" className="fs-6">Still Active</Badge>
                                                     }
                                                 </h5>
                                                 {
-                                                    format === "album"
+                                                    format === ("Album" || "album")
                                                         ?
                                                         <p>{format}: {albumTitle}</p>
                                                         :

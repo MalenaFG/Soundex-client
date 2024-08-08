@@ -7,13 +7,19 @@ const SongsListPage = () => {
         <section className="SongsListPage">
             <Container>
 
-                <h1>Songs</h1>
+                < div className="d-flex justify-content-between mb-4" >
 
+                    <h1 className="yellow">Songs</h1>
+
+                    <div className="d-flex justify-content-end mb-3">
+
+                        <Button as={Link} to={'/songs/new'} variant="light" className="shadow">Add new Song</Button>
+
+                    </div>
+
+                </div>
                 <SongsList />
 
-                <Link to={'/songs/new'}>
-                    <Button variant="light" className="shadow">Add new Song</Button>
-                </Link>
             </Container>
         </section>
     )
