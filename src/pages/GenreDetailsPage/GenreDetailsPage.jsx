@@ -112,6 +112,9 @@ const GenreDetailsPage = () => {
 
                                     </Col>
                                     <Col md={{ span: 5 }}>
+                                        <div className="d-flex justify-content-end mb-3">
+                                            <Button as={Link} to={`/songs/new/genre/${genreId}`} variant="light" >Add song to the playlist</Button>
+                                        </div>
 
                                         {
                                             songsData.length > 0 ? <PlaylistPlayer songsData={songsData} isLoading={isLoading} /> : <h1>NP SONGS</h1>

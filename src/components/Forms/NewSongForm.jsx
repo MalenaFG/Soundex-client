@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Button, Form, Row, Col } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 const API_URL = 'http://localhost:5005'
 
@@ -32,6 +32,8 @@ const NewSongForm = () => {
 
     const navigate = useNavigate()
 
+    const { genreRelatedId } = useParams()
+
     const handleInputChange = (event => {
         const { value, checked, type, name } = event.target
         const stateValue = type != 'checkbox' ? value : checked
@@ -56,6 +58,7 @@ const NewSongForm = () => {
 
     useEffect(() => {
         getAllGenres()
+        genreRelatedId && setSongData({ ...songData, ["genreId"]: Number(genreRelatedId) })
     }, [])
 
     const getAllGenres = () => {
@@ -103,7 +106,7 @@ const NewSongForm = () => {
                                     <option>Select genre</option>
                                     {
                                         genresArr.map(elm => {
-                                            return <option key={elm.id} value={`${elm.id}`}>{elm.name}</option>
+                                            return <option key={elm.id} value={`${elm.id}`} >{elm.name}</option>
                                         })
                                     }
                                 </>
@@ -120,7 +123,7 @@ const NewSongForm = () => {
                             inline
                             label="Single"
                             name="format"
-                            value='single'
+                            value='Single'
                             type="radio"
                             id={"inline-radio-1"}
                             onChange={handleInputChange}
@@ -131,7 +134,7 @@ const NewSongForm = () => {
                             inline
                             label="Album"
                             name="format"
-                            value='album'
+                            value='Album'
                             type="radio"
                             id={"inline-radio-2"}
                             onChange={handleInputChange}

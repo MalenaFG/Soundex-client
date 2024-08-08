@@ -22,6 +22,7 @@ const AppRoutes = () => {
             <Route path='/songs' element={<SongsListPage />} />
             <Route path='/songs/:songId' element={<SongDetailsPage />} />
             <Route path='/songs/new' element={<NewSongFormPage />} />
+            <Route path='/songs/new/genre/:genreRelatedId' element={<NewSongFormPage />} />
             <Route path='/songs/edit/:songId' element={<EditSongFormPage />} />
             <Route path='/about' element={<AboutUsPage />} />
 
