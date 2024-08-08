@@ -6,9 +6,9 @@ const EditGenreFormPage = () => {
     return (
         <section className="EditGenreFormPage">
             <Container>
-                <h1>Edit Genre data</h1>
                 <Row >
                     <Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+                        <h1 className="yellow">Edit Genre data</h1>
                         <EditGenreForm />
                     </Col>
                 </Row>

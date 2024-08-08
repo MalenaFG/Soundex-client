@@ -92,7 +92,7 @@ const GenreDetailsPage = () => {
                                                 {name}
                                                 <sup>
                                                     {
-                                                        isMainstream && <Badge pill bg='warning' text="dark" className="ms-3 fs-6">Mainstream</Badge>
+                                                        isMainstream && <Badge pill bg='yellow' text="dark" className="ms-3 fs-6">Mainstream</Badge>
                                                     }
                                                 </sup>
                                             </h1>
