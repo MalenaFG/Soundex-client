@@ -199,7 +199,7 @@ const NewGenreForm = () => {
                     </div>
                 </Form.Group>
 
-                <Button variant="outline-info" type="submit" className="shadow">Add Genre</Button>
+                <Button variant="outline-light" type="submit" className="shadow">Add Genre</Button>
 
             </Form>
         </div>

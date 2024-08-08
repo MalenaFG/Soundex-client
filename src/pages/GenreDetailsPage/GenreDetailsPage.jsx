@@ -117,7 +117,7 @@ const GenreDetailsPage = () => {
                                         </div>
 
                                         {
-                                            songsData.length > 0 ? <PlaylistPlayer songsData={songsData} isLoading={isLoading} /> : <h1>NP SONGS</h1>
+                                            songsData.length > 0 ? <PlaylistPlayer songsData={songsData} isLoading={isLoading} /> : <h1>Add the first song to the Genre</h1>
                                         }
 
                                     </Col>
