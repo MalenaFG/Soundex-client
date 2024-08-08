@@ -233,7 +233,7 @@ const EditGenreForm = () => {
                     </div>
                 </Form.Group>
                 <Stack direction="horizontal" gap={3} className="justify-content-between">
-                    <Button variant="outline-info" type="submit" className="shadow">Save changes</Button>
+                    <Button variant="outline-light" type="submit">Save changes</Button>
                     <Button variant="outline-danger" className="shadow" onClick={() => confirm("Are you sure?") && handleDeleteGenre()}>Remove Genre from Data base</Button>
 
                 </Stack>

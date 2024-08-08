@@ -76,8 +76,8 @@ const GenreDetailsPage = () => {
 
                                 <div className="d-flex justify-content-between">
 
-                                    <Button as={Link} to="/genres" variant="outline-info" className="shadow" size="lg">Back to Genres list</Button>
-                                    <Button as={Link} to={`/genres/edit/${genreId}`} variant="info" className="shadow" size="lg">Edit Genre</Button>
+                                    <Button as={Link} to="/genres" variant="outline-light" >Back to Genres list</Button>
+                                    <Button as={Link} to={`/genres/edit/${genreId}`} variant="light" >Edit Genre</Button>
 
                                 </div>
 

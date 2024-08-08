@@ -10,7 +10,7 @@ const GenresListPage = () => {
                 <div className="d-flex justify-content-between">
                     <h1>Music Genres</h1>
                     <div className="d-flex justify-content-end mb-3">
-                        <Button as={Link} to="/genres/new" variant="info" className="shadow" size="lg">Add new Genre</Button>
+                        <Button as={Link} to="/genres/new" variant="light">Add new Genre</Button>
                     </div>
                 </div>
 
