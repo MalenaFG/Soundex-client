@@ -94,7 +94,7 @@ const SongDetailsPage = () => {
                                                     }
                                                 </h5>
                                                 {
-                                                    format === ("Album" || "album")
+                                                    format === "album"
                                                         ?
                                                         <p>{format}: {albumTitle}</p>
                                                         :
