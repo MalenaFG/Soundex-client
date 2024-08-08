@@ -1,6 +1,7 @@
 import './PlaylistPlayer.css'
+import musicFill from '../../assets/file-earmark-music-fill.svg'
 import { useEffect, useState } from 'react'
-import { Badge, Button, Card, ListGroup, Nav, Ratio, Stack } from 'react-bootstrap'
+import { Badge, Button, Card, ListGroup, Nav, Ratio, Stack, Image } from 'react-bootstrap'
 import ReactPlayer from 'react-player/youtube'
 import { Link } from 'react-router-dom'
 import AnimatedMusicBars from '../Players/AnimatedMusicBars'
@@ -76,9 +77,12 @@ const PlaylistPlayer = ({ songsData, isLoading }) => {
 
                                     <span className='w-auto'>
                                         <Nav.Link as={Link} to={`/songs/${song.id}`}>
-                                            {song.songBy.band}: {song.title}
+                                            {song.songBy.band} - {song.title}
                                         </Nav.Link>
-                                        <Badge bg='rebecca'>{song.albumTitle}</Badge>
+                                        <Badge bg='rebecca' className='d-flex align-items-center'>
+                                            <Image src={musicFill} className="me-2" />
+                                            {song.albumTitle}
+                                        </Badge>
                                     </span>
                                     <span>
                                         {
