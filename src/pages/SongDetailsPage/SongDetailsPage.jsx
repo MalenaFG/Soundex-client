@@ -87,7 +87,8 @@ const SongDetailsPage = () => {
                                                 <h3 className="mb-3" >
                                                     Song by: <br /> {band}
                                                 </h3>
-                                                <a href={link} target="_blank" className="mb-3"><small>(www.oasis.com)</small></a>
+                                                {link &&
+                                                    <a href={link} target="_blank" className="mb-3"><small>({link})</small></a>}
                                                 <h5 className="mb-3">
                                                     {
                                                         active && <Badge pill bg='yellow' text="dark" className="fs-6">Still Active</Badge>
