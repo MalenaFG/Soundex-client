@@ -20,7 +20,7 @@ const GenreDetailsPage = () => {
 
     useEffect(() => {
         fetchGenreData()
-    }, [])
+    }, [genreId])
 
     useEffect(() => {
         genreData && putGenreData()
