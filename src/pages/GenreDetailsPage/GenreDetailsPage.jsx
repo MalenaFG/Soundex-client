@@ -8,7 +8,7 @@ import CustomImagesCarousel from "../../components/CustomImagesCarousel/CustomIm
 import GenreDetailsSidebar from "../../components/GenreDetailsSidebar/GenreDetailsSidebar"
 import PlaylistPlayer from "../../components/PlaylistPlayer/PlaylistPlayer"
 
-const API_URL = "http://localhost:5005"
+const API_URL = import.meta.env.VITE_API_URL
 
 const GenreDetailsPage = () => {
 

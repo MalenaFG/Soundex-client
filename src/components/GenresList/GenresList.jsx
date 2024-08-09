@@ -3,7 +3,7 @@ import axios from "axios"
 import GenreListCard from "../GenreListCard/GenreListCard"
 import { Row, Col } from "react-bootstrap"
 
-const API_URL = "http://localhost:5005"
+const API_URL = import.meta.env.VITE_API_URL
 
 const GenresList = () => {
 

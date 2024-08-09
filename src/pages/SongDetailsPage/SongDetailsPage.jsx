@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import StarsRating from "../../components/StarsRating/StarsRating"
 
-const API_URL = 'http://localhost:5005'
+const API_URL = import.meta.env.VITE_API_URL
 
 const SongDetailsPage = () => {
     const [songDetails, setSongDetails] = useState()
